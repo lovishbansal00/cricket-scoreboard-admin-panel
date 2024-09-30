@@ -1,12 +1,12 @@
-import express, { Express, Request, Response } from 'express';
+import express, { Express } from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import ballRoutes from './routes/ballRoutes';
-// import playerRoutes from './routes/playerRoutes';
-// import bowlerRoutes from './routes/bowlerRoutes';
-// import matchRoutes from './routes/matchRoutes';
+import playerRoutes from './routes/playerRoutes';
 import seedData from './utils/seedDatabase';
+import utilRouter from './utils/extractSeededData';
+
 
 dotenv.config();
 
@@ -25,10 +25,10 @@ mongoose.connect(MONGO_URI)
   .catch((error) => console.error('MongoDB connection error:', error));
 
 // Routes
+app.use('/api/match-details', utilRouter);
 app.use('/api/ball', ballRoutes);
-// app.use('/api/player', playerRoutes);
-// app.use('/api/bowler', bowlerRoutes);
-// app.use('/api/match', matchRoutes);
+app.use('/api/player', playerRoutes);
+
 
 
 // Start server 
@@ -36,8 +36,9 @@ const startServer = async () =>{
   await seedData(); // Seed the database on startup
 
   app.listen(port, () => {
-      console.log(`Server running on port ${port}`);
+    console.log(`Server running on port ${port}`);
   });
+  
 }
 
 startServer().catch((err) => console.error(err));

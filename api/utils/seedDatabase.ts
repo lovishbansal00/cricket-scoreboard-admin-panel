@@ -7,13 +7,6 @@ import Innings from '../models/Innings';
 // Seed Function
 const seedData = async (): Promise<void> => {
     try {
-        // Connect to MongoDB
-        // await mongoose.connect(process.env.MONGODB_URI || 'your_mongo_uri', {
-        //     useNewUrlParser: true,
-        //     useUnifiedTopology: true,
-        // });
-
-        // console.log('Connected to MongoDB');
 
         // Clear existing data
         await Team.deleteMany({});
