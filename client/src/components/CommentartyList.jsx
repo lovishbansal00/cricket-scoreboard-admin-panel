@@ -24,7 +24,6 @@ const CommentaryList = () => {
     <div className="p-4">
       <h3 className="text-lg font-semibold">Ball By Ball Commentary</h3>
       <div className="mt-4">
-        jnkjn
         {inningsData.map((inning, index) => (
           <div key={index} className="flex justify-between items-center bg-gray-100 p-2 rounded-md mt-2">
             <p>
