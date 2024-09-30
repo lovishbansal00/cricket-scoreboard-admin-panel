@@ -57,7 +57,8 @@ export const createNewBall = async (req: Request, res: Response, next: NextFunct
 
             nextOver = await newOver.save(); // Save the new over to the database
         }
-
+        
+        console.log('New ball created successfully');
         return res.status(201).json({
             message: 'New ball created successfully',
             ball: newBall,

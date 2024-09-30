@@ -1,5 +1,4 @@
 import { Request, Response } from 'express';
-import Match from '../models/Match';
 import Player from '../models/Player';
 
 // Change player on wicket fall

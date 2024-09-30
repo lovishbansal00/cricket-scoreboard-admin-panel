@@ -6,6 +6,7 @@ import ballRoutes from './routes/ballRoutes';
 import playerRoutes from './routes/playerRoutes';
 import seedData from './utils/seedDatabase';
 import utilRouter from './utils/extractSeededData';
+import matchRouter from './routes/matchRoutes';
 
 
 dotenv.config();
@@ -28,6 +29,7 @@ mongoose.connect(MONGO_URI)
 app.use('/api/match-details', utilRouter);
 app.use('/api/ball', ballRoutes);
 app.use('/api/player', playerRoutes);
+app.use('/api/match', matchRouter);
 
 
 
